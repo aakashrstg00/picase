@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div class="card">
+    <h2 class="page-header text-center mt-3" style="font-family: 'Open Sans',sans-serif;">Sign Up</h2>
+    <div class="card-block">
+      <form (submit)="onRegisterSubmit()">
+        <div class="form-group input-group">
+          <span class="input-group-addon w-25" id="username">NAME</span>
+          <input type="text" class="form-control" aria-describedby="name" name="name" [(ngModel)]="name">
+        </div>
+        <div class="form-group input-group">
+          <span class="input-group-addon w-25" id="password">EMAIL</span>
+          <input type="email" class="form-control" aria-describedby="email" name="email" [(ngModel)]="email">
+        </div>
+        <div class="form-group input-group">
+          <span class="input-group-addon w-25" id="username">USERNAME</span>
+          <input type="text" class="form-control" aria-describedby="username" name="username" [(ngModel)]="username">
+        </div>
+        <div class="form-group input-group">
+          <span class="input-group-addon w-25" id="password">PASSWORD</span>
+          <input type="text" class="form-control" aria-describedby="password" name="password" [(ngModel)]="password">
+        </div>
+        <input type="submit" class="btn btn-primary btn-center" value="SUBMIT">
+      </form>
+    </div>
+  </div>
+</div>
