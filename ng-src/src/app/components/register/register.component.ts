@@ -12,9 +12,13 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class RegisterComponent implements OnInit {
   name: String;
+  nameClass: String;
   username: String;
+  usernameClass: String;
   email: String;
+  emailClass: String;
   password: String;
+  passwordClass: String;
 
   constructor(
     private authService: AuthService,
@@ -24,6 +28,41 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  changedName(n){
+    if(n.length){
+      this.nameClass = 'up';
+    }
+    else {
+      this.nameClass = '';
+    }
+  }
+
+  changedEmail(n){
+    if(n.length){
+      this.emailClass = 'up';
+    }
+    else {
+      this.emailClass = '';
+    }
+  }
+  changedUsername(n){
+    if(n.length){
+      this.usernameClass = 'up';
+    }
+    else {
+      this.usernameClass = '';
+    }
+  }
+
+  changedPassword(n){
+    if(n.length){
+      this.passwordClass = 'up';
+    }
+    else {
+      this.passwordClass = '';
+    }
   }
 
   onRegisterSubmit(){
@@ -51,11 +90,11 @@ export class RegisterComponent implements OnInit {
     // register user code
     this.authService.registerUser(user).subscribe(data=>{
       if(data.success){
-        this.flashMessagesService.show('Registered Successfully, Continue to Login!', { cssClass: 'alert-success', timeout: 3000 });
+        this.flashMessagesService.show('Successful Sign up, Continue to log in!', { cssClass: 'alert-success', timeout: 3000 });
         this.router.navigate(['/login']);  
       }
       else{
-        this.flashMessagesService.show('Cannot Register At this moment', { cssClass: 'alert-danger', timeout: 3000 });
+        this.flashMessagesService.show('Cannot sign you up at this moment', { cssClass: 'alert-danger', timeout: 3000 });
         this.router.navigate(['/register']);
       }
     });

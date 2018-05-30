@@ -1,0 +1,39 @@
+.input-group {
+    background-color: #fafafa;
+    border: 1px solid rgba(0,0,0,0.125);
+    border-radius: 4px;
+}
+
+.material-input {
+    height: 28px;
+    width: 100%;
+    padding-left: 8px;
+    border: none;
+    outline: none;
+    margin-top: 12px;
+    background-color: transparent;
+    font-size: 14px;
+}
+
+.material-input-label {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 8px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    transition: 0.1s linear;
+    color: #999;
+}
+
+.material-input-label.up {
+    top: -12px;
+    font-size: 11px;
+}
+
+.material-input:focus ~ .material-input-label {
+    /* transform: scale(.7) translateY(-12px) translateX(-16px); */
+    top: -12px;
+    font-size: 11px;
+}

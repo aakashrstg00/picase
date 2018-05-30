@@ -1,18 +1,19 @@
 <div class="container mt-4">
   <div class="card">
-    <h2 class="page-header text-center mt-3" style="font-family: 'Open Sans',sans-serif;">Login</h2>
+    <h2 class="page-header text-center mt-3" style="font-family: 'Open Sans',sans-serif;">Picase</h2>
     <div class="card-block">
       <form (submit)="onLoginSubmit()">
         <div class="form-group input-group">
-          <span class="input-group-addon px-4" id="username">USERNAME</span>
-          <input type="text" class="form-control" aria-describedby="username" name="username" [(ngModel)]="username">
+          <input type="text" class="material-input" aria-describedby="username" id="username" name="username" [(ngModel)]="username" (ngModelChange)="changedUsername($event)">
+          <label class="material-input-label" [ngClass]="usernameClass" for="username">Username</label>
         </div>
         <div class="form-group input-group">
-          <span class="input-group-addon px-4" id="password">PASSWORD</span>
-          <input type="text" class="form-control" aria-describedby="password" name="password" [(ngModel)]="password">
+          <input type="password" class="material-input" aria-describedby="password" id="password" name="password" [(ngModel)]="password" (ngModelChange)="changedPassword($event)">
+          <label class="material-input-label" [ngClass]="passwordClass" for="password">Password</label>          
         </div>
-        <input type="submit" class="btn btn-outline-primary btn-center" value="LOGIN">
+        <input type="submit" class="btn btn-primary btn-center" value="Log in">
       </form>
     </div>
   </div>
+  <p class="p-2 text-center">Don't have an account? <a [routerLink]="['/register']">Sign up</a> </p> 
 </div>

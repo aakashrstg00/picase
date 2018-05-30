@@ -1,14 +1,14 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <div class="row">
+  <div class="row mt-3">
     <flash-messages></flash-messages>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <router-outlet></router-outlet>
+      <app-home id="app-home"></app-home>      
     </div>
     <div class="col-md-6">
-      <app-home id="app-home"></app-home>
+      <router-outlet></router-outlet>      
     </div>
   </div>
 </div>

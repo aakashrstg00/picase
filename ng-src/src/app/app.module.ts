@@ -1,36 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { IndexComponent } from './components/index/index.component';
 import { FeedComponent } from './components/feed/feed.component';
 
-import {ValidateService} from './services/validate.service';
-import {AuthService} from './services/auth.service';
-import {FlashMessagesModule} from 'angular2-flash-messages';
+import { ValidateService } from './services/validate.service';
+import { AuthService } from './services/auth.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
-const appRoutes: Routes = [
+const homeRoutes: Routes = [
   {
-    path:'',
-    component: IndexComponent
-  },
-  {
-    path:'register',
-    component: RegisterComponent
-  },
-  {
-    path:'login',
+    path: '',
     component: LoginComponent
   },
   {
-    path:'feed',
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
+];
+
+const feedRoutes: Routes = [
+  {
+    path: 'feed',
     component: FeedComponent
   }
 ];
@@ -42,14 +44,14 @@ const appRoutes: Routes = [
     RegisterComponent,
     LoginComponent,
     NavbarComponent,
-    IndexComponent,
     FeedComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(homeRoutes),
+    RouterModule.forRoot(feedRoutes),
     FlashMessagesModule.forRoot()
   ],
   providers: [ValidateService, AuthService],

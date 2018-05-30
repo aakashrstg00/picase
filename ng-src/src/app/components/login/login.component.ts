@@ -11,6 +11,8 @@ import {FlashMessagesService} from 'angular2-flash-messages';
 export class LoginComponent implements OnInit {
   username:String;
   password:String;
+  usernameClass:String;
+  passwordClass:String;
   constructor(
     private authService: AuthService,
     private router:Router,
@@ -18,6 +20,24 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  changedUsername(n){
+    if(n.length){
+      this.usernameClass = 'up';
+    }
+    else {
+      this.usernameClass = '';
+    }
+  }
+
+  changedPassword(n){
+    if(n.length){
+      this.passwordClass = 'up';
+    }
+    else {
+      this.passwordClass = '';
+    }
   }
 
   onLoginSubmit(){
