@@ -14,7 +14,7 @@ const UserSchema = mongoose.Schema({
     },
     username: {
         type: String,
-        unique: true,        
+        unique: true,
         required: true
     },
     password: {
@@ -30,10 +30,9 @@ module.exports.getUserById = (id, callback) => {
 }
 
 module.exports.getUserByUsername = (username, callback) => {
-    var query = {
+    User.findOne({
         username: username
-    };
-    User.findOne(query, callback);
+    }, callback);
 }
 
 module.exports.addUser = (newUser, callback) => {
@@ -53,12 +52,12 @@ module.exports.addUser = (newUser, callback) => {
     });
 }
 
-module.exports.comparePassword = (cPassword,hash,callback)=>{
-    bcrypt.compare(cPassword,hash,(err,isMatch)=>{
-        if(err){
+module.exports.comparePassword = (cPassword, hash, callback) => {
+    bcrypt.compare(cPassword, hash, (err, isMatch) => {
+        if (err) {
             throw err;
-        }else{
-            callback(null,isMatch);
+        } else {
+            callback(null, isMatch);
         }
     });
 }

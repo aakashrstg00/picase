@@ -1,2 +1,2 @@
 # picase
-instagram-like application built on MEAN Stack
+Instagram-like application built on MEAN Stack
